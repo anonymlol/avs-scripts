@@ -17,7 +17,7 @@ Parameters:
         *   Type of blur
             *   0: radius 6 blur. 
             *   1: radius 2 blur, requires around 8x more passes than type=0 for the same effect (will be 2.5x slower), but will produce better quality.
-    + [int] depth (10)
+    + [int] depth (16)
         *   Strength of the final warping. Negative values result in warping in opposite direction. Range [-128, 127]
     + [int] chroma (4)
         *   Processing mode for chroma planes (U and V)
@@ -42,7 +42,7 @@ function aWarpNN(clip input, int "rfactor", int "thresh", int "blur", int "type"
     thresh  = Default(thresh, 128) 
     blur    = Default(blur, 1) 
     type    = Default(type, 0) 
-    depth   = Default(depth, 10) 
+    depth   = Default(depth, 16) 
     chroma  = Default(chroma, 4)
     resize  = Default(resize, true)
     resizer = Default(resizer, "spline36")
