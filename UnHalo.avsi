@@ -11,7 +11,7 @@ Requirements:
     
 Parameters:
     + [string] dark_str ("2")
-            Darkening strength. Sensible values: 1-4
+        *   Darkening strength. Sensible values: 1-4
 */
 
 function UnHalo(clip input, string "dark_str") {
