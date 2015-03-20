@@ -10,7 +10,7 @@ Requirements:
     * f3kdb
     
 Parameters:
-    + [string] dark_str ("2")
+    + [string] dark_str ("1.5")
         *   Darkening strength. Sensible values: 1-4
 */
 
