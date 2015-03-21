@@ -1,9 +1,7 @@
 /*
-
 YAHR, Y'et A'nother H'alo R'educing script, by Didée, http://avisynth.nl/index.php/YAHR
 YAHRmask, by Tophf, http://pastebin.com/hxWHpspK
 With slight modifications (merging both functions into one). Output should be identical.
-
 */
 
 function YAHRmask(clip input, int "expand", int "warpdepth") {
