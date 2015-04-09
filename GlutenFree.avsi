@@ -9,7 +9,7 @@ function GlutenFree(clip last, int "bright", int "dark", string "lut", bool "Pro
     dark        = Default(dark, 50)           # Degrain strength for dark areas, higher is stronger.
     lut         = Default(lut, "40000")       # Decrease for stronger degraining.
     ProtectDark = Default(ProtectDark, false) # "True" degrains dark areas less to protect details. False doesn't.
-    ContraSharp = Default(ContraSharp, true)  # Sharpen the denoised clip, but don't add more than what was removed previously.
+    ContraSharp = Default(ContraSharp, false)  # Sharpen the denoised clip, but don't add more than what was removed previously.
     GPU         = Default(GPU, true)          # GPU or CPU for degraining prefilter
     
     source          = last
