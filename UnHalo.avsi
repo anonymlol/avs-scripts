@@ -4,7 +4,7 @@ UnHalo
 
 Requirements:
     * YAHRmask
-    * tcanny
+    * TCannyMod
     * MaskTools2
     * HQDering mod
     * f3kdb
@@ -18,7 +18,7 @@ function UnHalo(clip input, string "dark_str") {
 
     dark_str   = Default(dark_str, "1.5")
         
-    dmask       = input.tcanny(sigma=1).mt_expand().mt_expand().mt_expand()
+    dmask       = input.TCannyMod(sigma=1).mt_expand().mt_expand().mt_expand()
     avg         = input.AverageBlur(radY=3)
     mk          = mt_lutxy(input,mt_merge(input,avg,dmask),"x y min x - 0 < x y min x y x min - " + dark_str + " / + x y min ?")
     dering      = mk.hqderingmod(mrad=2,nrmode=2)
