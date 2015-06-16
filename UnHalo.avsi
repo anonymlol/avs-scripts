@@ -15,6 +15,8 @@ Requirements:
 Parameters:
     + [string] dark_str ("1.5")
         *   Darkening strength. Sensible values: 1-4
+    + [bool] HQ (true)
+        *   Enlarges the frame with nnedi3x_rpow2. Gives a cleaner output.
 */
 
 function UnHalo(clip input, string "dark_str", bool "HQ") {
