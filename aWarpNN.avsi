@@ -57,7 +57,7 @@ function aWarpNN(clip input, int "rfactor", int "thresh", int "blur", int "type"
     sharp = aWarpSharp2(rpowX, thresh, blur, type, depth, chroma)
     
     res   = (resizer == "spline16"  || resizer == "spline16resize" ) ?  Spline16Resize(sharp, ix, iy)   
-        \ : (resizer == "spline36"  || resizer == "spline36resize" ) ?  Spline16Resize(sharp, ix, iy)  
+        \ : (resizer == "spline36"  || resizer == "spline36resize" ) ?  Spline36Resize(sharp, ix, iy)  
         \ : (resizer == "spline64"  || resizer == "spline64resize" ) ?  Spline64Resize(sharp, ix, iy)  
         \ : (resizer == "spline144" || resizer == "spline144resize") ? Spline144Resize(sharp, ix, iy) 
         \ : (resizer == "Bicubic"   || resizer == "BicubicResize"  ) ?   BicubicResize(sharp, ix, iy)   
