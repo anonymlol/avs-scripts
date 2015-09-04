@@ -7,10 +7,24 @@ function MrdaaOCL(clip c, float "resharpen") {
 
     resharpen = Default(resharpen, 0)
 
-    dbl          = c.nnedi3x(field=1, dh=true, dw=1).Spline36Resize(c.width,c.height,-0.5,-0.5,c.width*2,c.height*2)
-    dblD         = mt_makediff(c,dbl,U=3,V=3)
-    shrpD        = mt_makediff(dbl,dbl.blur(resharpen*0.2,MMX=false),U=3,V=3)
-    DD           = shrpD.repair(dblD,13)
+    dbl     = c.nnedi3x(field=1, dh=true, dw=1).Spline36Resize(c.width,c.height,-0.5,-0.5,c.width*2,c.height*2)
+    dblD    = mt_makediff(c,dbl,U=3,V=3)
+    shrpD   = mt_makediff(dbl,dbl.blur(resharpen*0.2,MMX=false),U=3,V=3)
+    DD      = shrpD.repair(dblD,13)
+    
+    return dbl.mt_adddiff(DD,U=3,V=3) 
+}
+
+# Non-OCL version. Make sure you use the updated version of nnedi3 (chroma shift bug fixed). Download here: http://forum.doom9.org/showthread.php?t=170083
+
+function Mrdaa(clip c, float "resharpen") {
+
+    resharpen = Default(resharpen, 0)
+
+    dbl     = c.nnedi3_rpow2(rfactor=2,cshift="spline36resize",fwidth=c.width,fheight=c.height)
+    dblD    = mt_makediff(c,dbl,U=3,V=3)
+    shrpD   = mt_makediff(dbl,dbl.blur(resharpen*0.2,MMX=false),U=3,V=3)
+    DD      = shrpD.repair(dblD,13)
     
     return dbl.mt_adddiff(DD,U=3,V=3) 
 }
